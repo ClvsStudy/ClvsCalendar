@@ -2,12 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>git test!!</title>
+    <title>Project Calender</title>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
+    <!--<script src='/docs/dist/demo-to-codepen.js'></script>-->
 
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                selectable: true,
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                dateClick: function(info) {
+                    alert('clicked ' + info.dateStr);
+                },
+                select: function(info) {
+                    alert('selected ' + info.startStr + ' to ' + info.endStr);
+                }
+            });
+
+            calendar.render();
+        });
+
+    </script>
 </head>
 <body>
-    <h1>test</h1>
-    <p>안녕하세요! 스프링 스터디 깃 테스트 중입니다.</p>
-    <p>!!!!!!!!!!귀석 Pull Test file !! </p>
+<h1>Project Calendar</h1>
+<p>Project Calendar 확인하기.</p>
+<p>Full Calendar 보여주기 </p>
+<div id='calendar'></div>
 </body>
 </html>
