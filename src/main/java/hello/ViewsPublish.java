@@ -18,10 +18,7 @@ public class ViewsPublish {
     public static void main(String[] args) throws Exception {
         var config = new AppConfig();
         config.setSingleTeamBotToken(System.getenv("SLACK_BOT_TOKEN"));
-        System.out.println(System.getenv("SLACK_BOT_TOKEN"));
         config.setSigningSecret(System.getenv("SLACK_SIGNING_SECRET"));
-        System.out.println(System.getenv("SLACK_SIGNING_SECRET"));
-
         var app = new App(config); // `new App()` does the same
 
         app.event(AppHomeOpenedEvent.class, (req, ctx) -> {
